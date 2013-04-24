@@ -65,6 +65,8 @@ function zle-line-finish {
 zle -N zle-line-finish
 PROMPT='${vim_mode}'
 
+# Fill in first result from the completion menu already after pressing Tab for the first time
+setopt menucomplete
 
 # The following lines were added by compinstall
 
