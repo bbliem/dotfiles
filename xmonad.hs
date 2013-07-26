@@ -14,6 +14,7 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
+import XMonad.Layout.LayoutHints
 import XMonad.Config.Xfce
 import XMonad.Util.WorkspaceCompare
 import XMonad.Actions.FindEmptyWorkspace
@@ -96,7 +97,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
                                        >> windows W.shiftMaster))
     ]
  
-myLayout = spacing 2 $ avoidStruts $ tiled ||| Mirror tiled ||| Full
+myLayout = layoutHints $ spacing 2 $ avoidStruts $ tiled ||| Mirror tiled ||| Full
   where
     -- default tiling algorithm partitions the screen into two panes
     tiled   = Tall nmaster delta ratio
