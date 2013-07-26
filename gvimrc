@@ -1,12 +1,3 @@
-colorscheme desert
-"winpos 0 26
-
-"set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
-
-"set lines=63
-"set columns=80
-"set columns=100
-
 set guioptions-=m
 set guioptions-=T
-hi Conceal guibg=gray20 guifg=white
+set guioptions-=e " To avoid an XMonad issue: http://unix.stackexchange.com/questions/27198/gvim-opening-a-tab-pushes-status-line-out-of-window
