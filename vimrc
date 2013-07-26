@@ -10,7 +10,7 @@ set cinoptions=g0 " No indent for public / protected / private
 set showcmd
 set wildmenu
 set hlsearch
-set wildignore=*.o,*.class,*.swp,*.aux,*.log,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.out,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.tex.latexmain,*.auxlock
+set wildignore=*.o,*.class,*.swp,*.aux,*.log,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.out,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.tex.latexmain,*.auxlock,*.synctex.gz
 set linebreak " Do not break in the middle of words
 set showbreak=\ \ ↪\  " Show this before wrapped lines
 " showbreak should use the same background as normal text
@@ -19,6 +19,7 @@ set scrolloff=3 " Always scroll as to leave a few lines visible above/below curs
 set history=200 " Remember more commands
 set spelllang=en_us
 set spell
+set autochdir
 
 " Do not include cross referenced references if they are cross referenced more than once
 "let g:Tex_BibtexFlavor='bibtex -min-crossrefs=9999'
@@ -35,14 +36,17 @@ autocmd FileType tex setlocal indentexpr=
 
 " Set up vim-latexsuite
 filetype plugin on
-filetype indent on
+"filetype indent on
+"let g:tex_indent_items = 0
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex' " Use LaTeX for all files with .tex extension
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_MultipleCompileFormats='dvi,pdf'
 "let g:Tex_CompileRule_pdf='pdflatex -file-line-error -interaction=nonstopmode $* > /dev/null'
 " -shell-escape is for externalizing graphics with TikZ (see http://tex.stackexchange.com/questions/1460/script-to-automate-externalizing-tikz-graphics or the TikZ manual)
-let g:Tex_CompileRule_pdf='pdflatex -shell-escape -file-line-error -interaction=nonstopmode $* > /dev/null'
+" let g:Tex_CompileRule_pdf='pdflatex -shell-escape -file-line-error -interaction=nonstopmode $* > /dev/null'
+let g:Tex_CompileRule_pdf='pdflatex -shell-escape -synctex=1 -file-line-error -interaction=nonstopmode $* > /dev/null'
+let g:Tex_ViewRule_pdf = '~/evince_synctex/evince'
 
 " Save with F2
 noremap <silent> <F2> :update<CR>
@@ -60,6 +64,8 @@ let g:Tex_FoldedEnvironments = 'verbatim,comment,eq,gather,align,figure,table,th
 let g:Imap_FreezeImap=1
 " Disable vim-latex placeholders
 let g:Imap_UsePlaceHolders = 0
+" Fold preamble, among other things
+let g:Tex_FoldedMisc='slide,preamble,<<<'
 
 " Save swap files in some separate directory
 set directory=~/.vim-swapfiles
