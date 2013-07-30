@@ -27,4 +27,4 @@ endfunction
 " vim-latex can fold the preamble, but after opening a file, the cursor is
 " placed there, which opens the fold. So here we close it explicitly.
 call MakeTexFolds(1)
-foldclose
+silent! foldclose
