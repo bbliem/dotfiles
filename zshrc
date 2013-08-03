@@ -73,6 +73,10 @@ PROMPT='${vim_mode}'
 # Fill in first result from the completion menu already after pressing Tab for the first time
 setopt menucomplete
 
+# Make cd behave like pushd. (Use popd to go back recursively.)
+# http://unix.stackexchange.com/questions/84445/is-there-a-way-to-cd-back-multiple-times-in-bash?newsletter=1&nlcode=180097|b898
+setopt auto_pushd
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _complete _correct _approximate
