@@ -18,7 +18,7 @@ hi NonText guibg=gray20
 set scrolloff=3 " Always scroll as to leave a few lines visible above/below cursor
 set history=200 " Remember more commands
 set spelllang=en_us
-set spell
+"set spell
 set autochdir
 
 " Do not include cross referenced references if they are cross referenced more than once
