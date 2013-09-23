@@ -49,7 +49,7 @@ bindkey -M vicmd '^[[1;5C' vi-forward-word
 
 alias ls='ls --color=auto'
 
-setopt notify histignoredups sharehistory histignorespace
+setopt notify histignoredups sharehistory histignorespace nobeep
 
 setopt prompt_subst
 vim_ins_mode='
