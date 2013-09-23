@@ -1,8 +1,8 @@
 colorscheme desert
 syntax on
 syntax spell toplevel " http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files
-" Don't use Ex mode, use Q for formatting
-map Q gq
+" Don't use Ex mode, use Q for :q!
+map Q ZQ
 set mouse=a
 set tabstop=4
 set shiftwidth=4
