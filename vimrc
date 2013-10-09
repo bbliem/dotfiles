@@ -21,6 +21,7 @@ set history=200 " Remember more commands
 set spelllang=en_us
 "set spell
 set autochdir
+set matchpairs+=<:> " Match angled braces
 
 " Do not include cross referenced references if they are cross referenced more than once
 "let g:Tex_BibtexFlavor='bibtex -min-crossrefs=9999'
