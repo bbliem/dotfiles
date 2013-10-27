@@ -50,7 +50,7 @@ bindkey -M vicmd '^[[1;5C' vi-forward-word
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
-setopt notify histignoredups sharehistory histignorespace nobeep
+setopt notify histignoredups sharehistory histignorespace nobeep autocd
 
 setopt prompt_subst
 vim_ins_mode='
