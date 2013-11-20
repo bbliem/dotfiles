@@ -15,6 +15,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Layout.LayoutHints
+import XMonad.Layout.IndependentScreens
 import XMonad.Config.Xfce
 import XMonad.Util.WorkspaceCompare
 import XMonad.Actions.FindEmptyWorkspace
@@ -72,14 +73,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_Up),     shiftPrevScreen >> prevScreen)
     , ((modm,               xK_z),      toggleWS)
     , ((modm,               xK_KP_Insert), toggleWS)
-    , ((0,                  0x1008FF11), spawn "amixer set Master 5%- unmute; ~/.volume-notification.sh")
-    , ((0,                  0x1008FF13), spawn "amixer set Master 5%+ unmute; ~/.volume-notification.sh")
+    , ((0,                  0x1008FF11), spawn "amixer set Master 5%- unmute; ~/tools/volume-notification.sh")
+    , ((0,                  0x1008FF13), spawn "amixer set Master 5%+ unmute; ~/tools/volume-notification.sh")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
     -- mod-shift-[1..9], Move client to workspace N
-    [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+    [((m .|. modm, k), windows $ onCurrentScreen f i)
+        | (i, k) <- zip (workspaces' conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
 
@@ -149,7 +150,7 @@ main = xmonad $ ewmh xfceConfig {
     focusFollowsMouse  = True,
     borderWidth        = 2,
     modMask            = mod4Mask,
-    workspaces         = ["web", "2", "3", "mail", "music"],
+    workspaces         = withScreens 2 ["web", "2", "3", "mail", "music"],
     normalBorderColor  = "#dddddd",
     focusedBorderColor = "#3ea35e",
  
