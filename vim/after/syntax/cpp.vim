@@ -1,1 +1,1 @@
-syn keyword	cRepeat foreach
+set cindent
