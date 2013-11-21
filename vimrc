@@ -7,7 +7,7 @@ set mouse=a
 set tabstop=4
 set shiftwidth=4
 set cinoptions=g0 " No indent for public / protected / private
-set cindent
+"set cindent
 set showcmd
 set wildmenu
 set hlsearch
