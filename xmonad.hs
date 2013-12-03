@@ -128,12 +128,18 @@ myManageHook = composeAll
 --  [ isFullscreen --> (doF W.focusDown <+> doFullFloat)
 -- Single monitor setups, or if the previous hook doesn't work
     [ isFullscreen --> doFullFloat
-    , className =? "Firefox"         --> viewShift "web"
-    , className =? "Thunderbird"     --> viewShift "mail"
-    , className =? "Chromium"        --> viewShift "mail"
-    , className =? "Pidgin"          --> viewShift "mail"
-    , className =? "Skype"           --> viewShift "mail"
-    , className =? "Quodlibet"       --> viewShift "music"
+--    , className =? "Firefox"         --> viewShift "web"
+--    , className =? "Thunderbird"     --> viewShift "mail"
+--    , className =? "Chromium"        --> viewShift "mail"
+--    , className =? "Pidgin"          --> viewShift "mail"
+--    , className =? "Skype"           --> viewShift "mail"
+--    , className =? "Quodlibet"       --> viewShift "music"
+    , className =? "Firefox"         --> viewShift "0_web"
+    , className =? "Thunderbird"     --> viewShift "0_mail"
+    , className =? "Chromium"        --> viewShift "0_mail"
+    , className =? "Pidgin"          --> viewShift "0_mail"
+    , className =? "Skype"           --> viewShift "0_mail"
+    , className =? "Quodlibet"       --> viewShift "0_music"
     , className =? "MPlayer"         --> doFloat
     , className =? "Gimp"            --> doFloat
     , className =? "Xfce4-appfinder" --> doFloat
