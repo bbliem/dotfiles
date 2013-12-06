@@ -150,13 +150,15 @@ myManageHook = composeAll
     where viewShift = doF . liftM2 (.) W.greedyView W.shift
  
 --main = xmonad $ ewmh defaults
-main = xmonad $ ewmh xfceConfig {
+main = do
+    nScreens <- countScreens
+    xmonad $ ewmh xfceConfig {
     -- simple stuff
     terminal           = "xfce4-terminal",
     focusFollowsMouse  = True,
     borderWidth        = 2,
     modMask            = mod4Mask,
-    workspaces         = withScreens 2 ["web", "2", "3", "mail", "music"],
+    workspaces         = withScreens nScreens ["web", "2", "3", "mail", "music"],
     normalBorderColor  = "#dddddd",
     focusedBorderColor = "#3ea35e",
  
