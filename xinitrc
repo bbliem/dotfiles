@@ -13,7 +13,7 @@ fi
 
 xsetroot -cursor_name left_ptr
 xfdesktop &
-xfce4-panel &
+xfce4-panel --disable-wm-check &
 nm-applet &
 dropboxd &
 xcompmgr -c &
