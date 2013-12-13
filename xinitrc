@@ -14,8 +14,10 @@ fi
 xsetroot -cursor_name left_ptr
 xfdesktop &
 xfce4-panel &
-#dropboxd &
-bash -c "sleep 5 && dropboxd" &
-/home/bernhard/tools/sound/icon &
+nm-applet &
+dropboxd &
+xcompmgr -c &
+#bash -c "sleep 5 && dropboxd" &
+#/home/bernhard/tools/sound/icon &
 #exec ck-launch-session xmonad
 exec xmonad

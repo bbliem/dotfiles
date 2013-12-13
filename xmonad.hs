@@ -12,6 +12,7 @@ import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.FadeInactive
 import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Layout.LayoutHints
@@ -98,7 +99,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
                                        >> windows W.shiftMaster))
     ]
  
-myLayout = layoutHints $ spacing 2 $ avoidStruts $ tiled ||| Mirror tiled ||| Full
+myLayout = layoutHints $ spacing 6 $ avoidStruts $ tiled ||| Mirror tiled ||| Full
   where
     -- default tiling algorithm partitions the screen into two panes
     tiled   = Tall nmaster delta ratio
@@ -148,7 +149,11 @@ myManageHook = composeAll
     , resource  =? "desktop_window"  --> doIgnore
     , resource  =? "kdesktop"        --> doIgnore ]
     where viewShift = doF . liftM2 (.) W.greedyView W.shift
- 
+
+myLogHook :: X ()
+myLogHook = fadeInactiveLogHook fadeAmount
+    where fadeAmount = 0.88
+
 --main = xmonad $ ewmh defaults
 main = do
     nScreens <- countScreens
@@ -159,8 +164,8 @@ main = do
     borderWidth        = 2,
     modMask            = mod4Mask,
     workspaces         = withScreens nScreens ["web", "2", "3", "mail", "music"],
-    normalBorderColor  = "#dddddd",
-    focusedBorderColor = "#3ea35e",
+    normalBorderColor  = "#000000",
+    focusedBorderColor = "#ffffff",
  
     -- key bindings
     keys               = myKeys,
@@ -169,7 +174,8 @@ main = do
     -- hooks, layouts
     layoutHook         = smartBorders (myLayout), -- Don't put borders on fullFloatWindows
     manageHook         = myManageHook <+> manageDocks,
-    handleEventHook    = fullscreenEventHook
+    handleEventHook    = fullscreenEventHook,
+    logHook            = myLogHook
     }
 
 -- vim:expandtab
