@@ -84,6 +84,7 @@ zstyle ':completion:*' completer _complete _correct _approximate
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' max-errors 1
 zstyle ':completion:*' menu select=1
+zstyle ':completion:*:commands' rehash 1 # Don't use cache for completing (useful when, e.g., installing new applications)
 zstyle :compinstall filename '/home/bernhard/.zshrc'
 
 autoload -Uz compinit
