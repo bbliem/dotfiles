@@ -43,6 +43,8 @@ map Q ZQ
 " Use space bar to toggle or create folds
 nmap <silent> <Space> za
 vmap <silent> <Space> zf
+" Disable F1 help
+nmap <F1> <nop>
 " Save with F2
 noremap <silent> <F2> :update<CR>
 inoremap <silent> <F2> <C-O>:update<CR>
