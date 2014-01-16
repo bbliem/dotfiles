@@ -1,1 +1,2 @@
-au BufRead,BufNewFile *.lp		set filetype=gringo
+au BufNewFile,BufRead *.lp set filetype=gringo
+
