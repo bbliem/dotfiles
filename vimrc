@@ -24,12 +24,12 @@ set spelllang=en_us
 "set spell
 set autochdir
 set matchpairs+=<:> " Match angled braces
+set mousemodel=popup_setpos " Makes, e.g., spell suggestions easily accessible
+set cursorline
 
 " Save swap files in some separate directory
 set directory=~/.vim-swapfiles
 set backupdir=~/.vim-swapfiles
-
-set mousemodel=popup_setpos " Makes, e.g., spell suggestions easily accessible
 "}}}
 "{{{ Concealing of math symbols in LaTeX mode
 let g:tex_conceal="adgms"
