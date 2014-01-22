@@ -14,7 +14,7 @@ set foldmethod=marker
 set showcmd
 set wildmenu
 set hlsearch
-set wildignore=*.o,*.class,*.swp,*.aux,*.log,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.out,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.tex.latexmain,*.auxlock,*.synctex.gz
+set wildignore=*.o,*.class,*.swp,*.aux,*.log,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.out,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.auxlock,*.synctex.gz
 set linebreak " Do not break in the middle of words
 set showbreak=\ \ ↪\  " Show this before wrapped lines
 " showbreak should use the same background as normal text
