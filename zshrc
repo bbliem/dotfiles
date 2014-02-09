@@ -47,6 +47,14 @@ bindkey -M vicmd '^[[1;5D' vi-backward-word
 bindkey '^[[1;5C' vi-forward-word
 bindkey -M vicmd '^[[1;5C' vi-forward-word
 
+# Make CTRL + W delete up to the last slash
+backward-delete-to-slash () {
+	local WORDCHARS=${WORDCHARS//\//}
+	zle .backward-delete-word
+}
+zle -N backward-delete-to-slash
+bindkey "^W" backward-delete-to-slash
+
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
