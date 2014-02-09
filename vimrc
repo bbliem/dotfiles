@@ -1,3 +1,4 @@
+set nocompatible
 colorscheme desert
 syntax on
 syntax spell toplevel " http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files
@@ -10,6 +11,7 @@ set tabstop=4
 set shiftwidth=4
 set cinoptions=g0 " No indent for public / protected / private
 "set cindent
+filetype plugin indent on
 set foldmethod=marker
 set showcmd
 set wildmenu
@@ -94,8 +96,6 @@ imap <Home> <C-o>g<Home>
 imap <End> <C-o>g<End>
 "}}}
 "{{{ Settings for vim-latexsuite
-filetype plugin on
-"filetype indent on
 "let g:tex_indent_items = 0
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex' " Use LaTeX for all files with .tex extension
