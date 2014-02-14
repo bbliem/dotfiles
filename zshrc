@@ -1,3 +1,10 @@
+# In gnome-terminal we must use the following workaround in order to make a shell in a new tab start in the current working directory.
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=706065
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=712208
+# http://unix.stackexchange.com/questions/93476/gnome-terminal-keep-track-of-directory-in-new-tab
+# https://bugs.launchpad.net/ubuntu-gnome/+bug/1193993
+[[ -s "/etc/profile.d/vte.sh" ]] && . "/etc/profile.d/vte.sh"
+
 export EDITOR=vim
 HISTSIZE=1000
 SAVEHIST=1000
