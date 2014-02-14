@@ -5,8 +5,8 @@ HISTFILE=~/.zsh_history
 eval $(dircolors -b)
 
 # When using SSH for the first time in this session, start SSH agent and add private key to its cache
-alias ssh='eval $(keychain --eval --agents ssh -Q --quiet id_ecdsa) && ssh'
-alias scp='eval $(keychain --eval --agents ssh -Q --quiet id_ecdsa) && scp'
+alias ssh='eval $(keychain --eval --agents ssh -Q --quiet --nogui id_ecdsa) && ssh'
+alias scp='eval $(keychain --eval --agents ssh -Q --quiet --nogui id_ecdsa) && scp'
 
 bindkey -v
 KEYTIMEOUT=1 # for switching to vi command mode immediately
