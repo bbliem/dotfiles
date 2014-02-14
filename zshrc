@@ -14,6 +14,9 @@ eval $(dircolors -b)
 # When using SSH for the first time in this session, start SSH agent and add private key to its cache
 alias ssh='eval $(keychain --eval --agents ssh -Q --quiet --nogui id_ecdsa) && ssh'
 alias scp='eval $(keychain --eval --agents ssh -Q --quiet --nogui id_ecdsa) && scp'
+alias ccat='pygmentize -g'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 
 bindkey -v
 KEYTIMEOUT=1 # for switching to vi command mode immediately
@@ -61,9 +64,6 @@ backward-delete-to-slash () {
 }
 zle -N backward-delete-to-slash
 bindkey "^W" backward-delete-to-slash
-
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
 
 setopt notify histignoredups sharehistory histignorespace nobeep autocd
 
