@@ -1,5 +1,5 @@
 set nocompatible
-colorscheme desert
+colorscheme molokai
 syntax on
 syntax spell toplevel " http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files
 "let g:tex_comment_nospell=1 " No spell check in comments
@@ -28,6 +28,8 @@ set autochdir
 set matchpairs+=<:> " Match angled braces
 set mousemodel=popup_setpos " Makes, e.g., spell suggestions easily accessible
 set cursorline
+set background=dark
+set laststatus=2
 
 " Save swap files in some separate directory
 set directory=~/.vim-swapfiles

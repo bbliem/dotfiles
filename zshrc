@@ -67,24 +67,26 @@ bindkey "^W" backward-delete-to-slash
 
 setopt notify histignoredups sharehistory histignorespace nobeep autocd
 
-setopt prompt_subst
-vim_ins_mode='
-%B%F{blue}%n@%m%f %F{white}%d%f
-%B%F{red}❯%F{yellow}❯%F{green}❯%f%b '
-vim_cmd_mode='
-%B%F{blue}%n@%m%f %F{white}%d%f
-%B%F{green}❮%F{yellow}❮%F{red}❮%f%b '
-vim_mode=$vim_ins_mode
-function zle-keymap-select {
-	vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
-	zle reset-prompt
-}
-zle -N zle-keymap-select
-function zle-line-finish {
-	vim_mode=$vim_ins_mode
-}
-zle -N zle-line-finish
-PROMPT='${vim_mode}'
+#setopt prompt_subst
+#vim_ins_mode='
+#%B%F{blue}%n@%m%f %F{white}%d%f
+#%B%F{red}❯%F{yellow}❯%F{green}❯%f%b '
+#vim_cmd_mode='
+#%B%F{blue}%n@%m%f %F{white}%d%f
+#%B%F{green}❮%F{yellow}❮%F{red}❮%f%b '
+#vim_mode=$vim_ins_mode
+#function zle-keymap-select {
+#	vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+#	zle reset-prompt
+#}
+#zle -N zle-keymap-select
+#function zle-line-finish {
+#	vim_mode=$vim_ins_mode
+#}
+#zle -N zle-line-finish
+#PROMPT='${vim_mode}'
+
+. /usr/share/zsh/site-contrib/powerline.zsh
 
 # Fill in first result from the completion menu already after pressing Tab for the first time
 setopt menucomplete
