@@ -48,10 +48,10 @@ map Q ZQ
 nmap <silent> <Space> za
 vmap <silent> <Space> zf
 " Disable F1 help
-nmap <F1> <nop>
+map <F1> <nop>
 " Save with F2
-noremap <silent> <F2> :update<CR>
-inoremap <silent> <F2> <C-O>:update<CR>
+map <silent> <F2> :update<CR>
+imap <silent> <F2> <C-O>:update<CR>
 " Compile with F3
 map <f3> <leader>ll
 imap <f3> <C-O><leader>ll
@@ -76,16 +76,12 @@ map <A-7> 7gt
 map <A-8> 8gt
 map <A-9> 9gt
 map <A-0> 10gt
-map <C-t> :tabnew<CR>
 nmap <C-S-tab> :tabprevious<cr>
 nmap <C-tab> :tabnext<cr>
-nmap <C-t> :tabnew<cr>
-map <C-t> :tabnew<cr>
 map <C-S-tab> :tabprevious<cr>
 map <C-tab> :tabnext<cr>
 imap <C-S-tab> <ESC>:tabprevious<cr>i
 imap <C-tab> <ESC>:tabnext<cr>i
-imap <C-t> <ESC>:tabnew<cr>
 
 " Arrow keys affect *display* lines (for real lines, use j/k)
 map <Up> gk
@@ -96,6 +92,14 @@ imap <Up> <C-o>gk
 imap <Down> <C-o>gj
 imap <Home> <C-o>g<Home>
 imap <End> <C-o>g<End>
+
+" Toggle Nerdtree with Shift + Space
+nmap <S-Space> :execute 'NERDTreeToggle ' . getcwd()<CR>
+" It seems to be a limitation of terminals that you can't map anything to
+" Shift + Something, however it works in gvim.
+" So we try to also map CTRL + Space to the same command. However, due to
+" terminals misinterpreting this as CTRL + @, we use that one.
+nmap <C-@> :execute 'NERDTreeToggle ' .   getcwd()<CR>
 "}}}
 "{{{ Settings for vim-latexsuite
 "let g:tex_indent_items = 0
