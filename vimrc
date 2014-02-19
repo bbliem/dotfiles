@@ -16,7 +16,7 @@ set foldmethod=marker
 set showcmd
 set wildmenu
 set hlsearch
-set wildignore=*.o,*.class,*.swp,*.aux,*.log,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.out,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.auxlock,*.synctex.gz
+set wildignore=*.o,*.class,*.swp,*.aux,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.auxlock,*.synctex.gz
 set linebreak " Do not break in the middle of words
 set showbreak=\ \ ↪\  " Show this before wrapped lines
 " showbreak should use the same background as normal text
@@ -47,17 +47,19 @@ map Q ZQ
 " Use space bar to toggle or create folds
 nmap <silent> <Space> za
 vmap <silent> <Space> zf
+" Hide search highlighting (then clear and redraw screen) with CTRL-L
+nnoremap <silent> <C-L> :noh<CR><C-L>
 " Disable F1 help
 map <F1> <nop>
 " Save with F2
 map <silent> <F2> :update<CR>
 imap <silent> <F2> <C-O>:update<CR>
 " Compile with F3
-map <f3> <leader>ll
-imap <f3> <C-O><leader>ll
+map <F3> <leader>ll
+imap <F3> <C-O><leader>ll
 " View with F4
-map <f4> <leader>lv
-imap <f4> <C-O><leader>lv
+map <F4> <leader>lv
+imap <F4> <C-O><leader>lv
 " Switch between .h and .cpp with F8
 " See http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file
 " Using :drop so when both are open the cursor just jumps to the other window
