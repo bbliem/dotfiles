@@ -2,3 +2,6 @@
 " Nerdtree buffers.
 map <buffer> <Space> <nop>
 let NERDTreeMapActivateNode='<Space>'
+
+" Single-click to open files/directories
+let NERDTreeMouseMode=3

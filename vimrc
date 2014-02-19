@@ -51,6 +51,7 @@ vmap <silent> <Space> zf
 nnoremap <silent> <C-L> :noh<CR><C-L>
 " Disable F1 help
 map <F1> <nop>
+imap <F1> <nop>
 " Save with F2
 map <silent> <F2> :update<CR>
 imap <silent> <F2> <C-O>:update<CR>
