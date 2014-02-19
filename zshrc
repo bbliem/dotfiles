@@ -24,6 +24,10 @@ bindkey -M vicmd '^R' redo
 bindkey -M vicmd 'u' undo
 bindkey -M viins '^r' history-incremental-search-backward
 
+# The vi versions of the following seem to only allow deleting up to where insert mode started. Annoying!
+zle -A .backward-kill-word vi-backward-kill-word
+zle -A .backward-delete-char vi-backward-delete-char
+
 # shift-tab
 bindkey "$terminfo[kcbt]" reverse-menu-complete
 
@@ -103,7 +107,7 @@ zstyle ':completion:*' max-errors 1
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*:commands' rehash 1 # Don't use cache for completing (useful when, e.g., installing new applications)
 # Ignore some files for vim argument completion
-ignored_files=('*?.aux' '*?.bbl' '*?.blg' '*?.log' '*?.nav' '*?.pdf' '*?.snm' '*?.spl' '*?.synctex.gz' '*?.tex.latexmain' '*?.toc' '*?.o' '*?.out' '*?.vrb')
+ignored_files=('*?.aux' '*?.bbl' '*?.blg' '*?.nav' '*?.pdf' '*?.snm' '*?.spl' '*?.synctex.gz' '*?.tex.latexmain' '*?.toc' '*?.o' '*?.vrb')
 zstyle ':completion:*:*:vim:*:*files' ignored-patterns ${ignored_files}
 zstyle ':completion:*:*:gvim:*:*files' ignored-patterns ${ignored_files}
 zstyle :compinstall filename '/home/bernhard/.zshrc'
