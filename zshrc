@@ -17,6 +17,7 @@ alias scp='eval $(keychain --eval --agents ssh -Q --quiet --nogui id_ecdsa) && s
 alias ccat='pygmentize -g'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias packer='packer --noedit'
 
 bindkey -v
 KEYTIMEOUT=1 # for switching to vi command mode immediately
