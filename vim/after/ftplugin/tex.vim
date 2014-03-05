@@ -1,3 +1,10 @@
+" Compile with F3
+map <F3> <leader>ll
+imap <F3> <C-O><leader>ll
+" View with F4
+map <F4> <leader>lv
+imap <F4> <C-O><leader>lv
+
 " See http://vim.wikia.com/wiki/Compiling_LaTeX_from_Vim
 "au BufWritePost *.tex silent call Tex_RunLaTeX()
 
