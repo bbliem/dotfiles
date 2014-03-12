@@ -1,3 +1,4 @@
+map <F1> <nop>
 " Compile with F3
 map <F3> <leader>ll
 imap <F3> <C-O><leader>ll
