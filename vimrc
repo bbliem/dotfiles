@@ -30,6 +30,7 @@ set mousemodel=popup_setpos " Makes, e.g., spell suggestions easily accessible
 set cursorline
 set background=dark
 set laststatus=2
+set noshowmode " powerline should take care of this
 
 " Save swap files in some separate directory
 set directory=~/.vim-swapfiles
