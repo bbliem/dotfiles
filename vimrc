@@ -130,3 +130,7 @@ autocmd FileType tex setlocal indentexpr=
 " Do not include cross referenced references if they are cross referenced more than once
 "let g:Tex_BibtexFlavor='bibtex -min-crossrefs=9999'
 "}}}
+"{{{ Settings for YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_autoclose_preview_window_after_insertion=1
+"}}}
