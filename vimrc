@@ -1,11 +1,17 @@
-set nocompatible
 colorscheme molokai
-syntax on
-syntax spell toplevel " http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files
 "let g:tex_comment_nospell=1 " No spell check in comments
 let g:is_posix = 1 " Otherwise $(...) in bash scripts will be highlighted in an irritating way
 
+"{{{ Syntax highlighting
+syntax on
+syntax spell toplevel " http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files
+" Highlight spaces before EOL
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+"}}}
 "{{{ "set" commands
+set nocompatible
 set mouse=a
 set tabstop=4
 set shiftwidth=4
