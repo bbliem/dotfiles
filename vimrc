@@ -56,7 +56,7 @@ map Q ZQ
 nmap <silent> <Space> za
 vmap <silent> <Space> zf
 " Hide search highlighting (then clear and redraw screen) with CTRL-L
-nnoremap <silent> <C-L> :noh<CR><C-L>
+nnoremap <silent> <C-L> :noh<CR>:cclose<CR><C-L>
 " Disable F1 help
 map <F1> <nop>
 imap <F1> <nop>
@@ -130,6 +130,11 @@ let g:Tex_IgnoredWarnings =
 \"There were undefined references\n".
 \"Marginpar on page %.%# moved." " We want to ignore this additionally. The other 7 entries before are the default. (Whatever the fuck %.%# means...)
 let g:Tex_IgnoreLevel = 8 " default: 7
+
+" Don't jump to error locations (it's wrong most of the time and annoying)
+let g:Tex_GotoError=0
+" Don't show that domn log window each time
+let g:Tex_ShowErrorContext=0
 
 " Disable indentation for LaTeX files.
 autocmd FileType tex setlocal indentexpr=
