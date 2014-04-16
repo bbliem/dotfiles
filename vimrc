@@ -56,7 +56,8 @@ map Q ZQ
 nmap <silent> <Space> za
 vmap <silent> <Space> zf
 " Hide search highlighting (then clear and redraw screen) with CTRL-L
-nnoremap <silent> <C-L> :noh<CR>:cclose<CR><C-L>
+"nnoremap <silent> <C-L> :match none<CR>:noh<CR>:cclose<CR><C-L>
+nnoremap <silent> <C-L> :match ExtraWhitespace /\s\+$/<CR>:noh<CR>:cclose<CR><C-L>
 " Disable F1 help
 map <F1> <nop>
 imap <F1> <nop>
