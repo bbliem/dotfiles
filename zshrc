@@ -11,6 +11,7 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 eval $(dircolors -b)
 
+#{{{ Aliases
 # When using SSH for the first time in this session, start SSH agent and add private key to its cache
 alias ssh='eval $(keychain --eval --agents ssh -Q --quiet --nogui id_ecdsa) && ssh'
 alias scp='eval $(keychain --eval --agents ssh -Q --quiet --nogui id_ecdsa) && scp'
@@ -18,7 +19,8 @@ alias ccat='pygmentize -g'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias packer='packer --noedit'
-
+#}}}
+#{{{ Key bindings
 bindkey -v
 KEYTIMEOUT=1 # for switching to vi command mode immediately
 bindkey -M vicmd '^R' redo
@@ -69,6 +71,20 @@ backward-delete-to-slash () {
 }
 zle -N backward-delete-to-slash
 bindkey "^W" backward-delete-to-slash
+
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+    function zle-line-init () {
+        printf '%s' "${terminfo[smkx]}"
+    }
+    function zle-line-finish () {
+        printf '%s' "${terminfo[rmkx]}"
+    }
+    zle -N zle-line-init
+    zle -N zle-line-finish
+fi
+#}}}
 
 setopt notify histignoredups sharehistory histignorespace nobeep autocd
 
