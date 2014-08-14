@@ -8,6 +8,6 @@ set guioptions-=e " To avoid an XMonad issue: http://unix.stackexchange.com/ques
 " https://github.com/Lokaltog/powerline/issues/698
 " https://github.com/bling/vim-airline/issues/256
 " https://github.com/Lokaltog/powerline/issues/701
-set guifont=Monaco\ for\ Powerline
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
 set lines=48
 set columns=120
