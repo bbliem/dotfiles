@@ -1,7 +1,7 @@
 map <F1> <nop>
 " Compile with F3
-map <F3> <leader>ll
-imap <F3> <C-O><leader>ll
+map <F3> :update<CR><leader>ll
+imap <F3> <C-O>:update<CR><C-O><leader>ll
 " View with F4
 map <F4> <leader>lv
 imap <F4> <C-O><leader>lv
