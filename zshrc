@@ -16,7 +16,7 @@ eval $(dircolors -b)
 alias ssh='eval $(keychain --eval --agents ssh -Q --quiet --nogui id_ecdsa) && ssh'
 alias scp='eval $(keychain --eval --agents ssh -Q --quiet --nogui id_ecdsa) && scp'
 alias ccat='pygmentize -g'
-alias ls='ls --color=auto'
+alias ls='ls --color=auto -N'
 alias grep='grep --color=auto'
 alias packer='packer --noedit'
 #}}}
