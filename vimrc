@@ -1,5 +1,5 @@
 colorscheme molokai
-"let g:tex_comment_nospell=1 " No spell check in comments
+let g:tex_comment_nospell=1 " No spell check in comments
 let g:is_posix = 1 " Otherwise $(...) in bash scripts will be highlighted in an irritating way
 
 "{{{ Syntax highlighting
@@ -100,17 +100,24 @@ nmap <S-Space> :execute 'NERDTreeToggle ' . getcwd()<CR>
 " So we try to also map CTRL + Space to the same command. However, due to
 " terminals misinterpreting this as CTRL + @, we use that one.
 nmap <C-@> :execute 'NERDTreeToggle ' .   getcwd()<CR>
+
+" Make mouse clicks appear in the jump list so that, e.g., CTRL-O can be used
+" to jump back to the position before clicking.
+" http://vim.1045645.n5.nabble.com/Clicking-the-mouse-doesn-t-change-the-jump-list-td1201782.html
+noremap <LeftMouse> m'<LeftMouse>
 "}}}
 "{{{ Settings for vim-latexsuite
 "let g:tex_indent_items = 0
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex' " Use LaTeX for all files with .tex extension
 let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_MultipleCompileFormats='dvi,pdf'
+"let g:Tex_MultipleCompileFormats='dvi,pdf'
+let g:Tex_MultipleCompileFormats='pdf'
 "let g:Tex_CompileRule_pdf='pdflatex -file-line-error -interaction=nonstopmode $* > /dev/null'
 " -shell-escape is for externalizing graphics with TikZ (see http://tex.stackexchange.com/questions/1460/script-to-automate-externalizing-tikz-graphics or the TikZ manual)
 " let g:Tex_CompileRule_pdf='pdflatex -shell-escape -file-line-error -interaction=nonstopmode $* > /dev/null'
-let g:Tex_CompileRule_pdf='pdflatex -shell-escape -synctex=1 -file-line-error -interaction=nonstopmode $* > /dev/null'
+"let g:Tex_CompileRule_pdf='pdflatex -shell-escape -synctex=1 -file-line-error -interaction=nonstopmode $* > /dev/null'
+let g:Tex_CompileRule_pdf='latexmk -pdf -pdflatex="pdflatex -synctex=1 -file-line-error -interaction=nonstopmode -shell-escape" -f $*'
 let g:Tex_ViewRule_pdf = '~/evince_synctex/evince'
 
 " Fold frames (with beamer class)

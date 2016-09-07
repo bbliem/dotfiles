@@ -17,6 +17,8 @@ syn region texZone      start="\\begin{boxedverbatim}"      end="\\end{boxedverb
 " no spell checking in \todo
 syn region texZone      start="\\todo{"      end="\}\|%stopzone\>" contains=@NoSpell
 syn region texZone      start="\\todo\[inline\]{"      end="\}\|%stopzone\>" contains=@NoSpell
+syntax spell toplevel
+set spell
 
 " if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press Ctrl-N you will automatically cycle through
