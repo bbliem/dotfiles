@@ -1,6 +1,7 @@
 colorscheme molokai
 let g:tex_comment_nospell=1 " No spell check in comments
 let g:is_posix = 1 " Otherwise $(...) in bash scripts will be highlighted in an irritating way
+filetype plugin indent on
 
 "{{{ Syntax highlighting
 syntax on
@@ -11,33 +12,33 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 "}}}
 "{{{ "set" commands
-set nocompatible
-set mouse=a
-set tabstop=4
-set shiftwidth=4
-set cinoptions=g0 " No indent for public / protected / private
-"set cindent
-filetype plugin indent on
-set foldmethod=marker
-set showcmd
-set wildmenu
-set hlsearch
-set wildignore=*.o,*.class,*.swp,*.aux,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.auxlock,*.synctex.gz
-set linebreak " Do not break in the middle of words
-set showbreak=\ \ ↪\  " Show this before wrapped lines
-" showbreak should use the same background as normal text
-set scrolloff=3 " Always scroll as to leave a few lines visible above/below cursor
-set history=200 " Remember more commands
-set spelllang=en_us
-"set spell
 set autochdir
-set matchpairs+=<:> " Match angled braces
-set mousemodel=popup_setpos " Makes, e.g., spell suggestions easily accessible
-set cursorline
 set background=dark
+"set cindent
+set cinoptions=g0 " No indent for public / protected / private
+set cursorline
+set foldmethod=marker
+set gdefault
+set history=200 " Remember more commands
+set hlsearch
 set laststatus=2
+set linebreak " Do not break in the middle of words
+set matchpairs+=<:> " Match angled braces
+set mouse=a
+set mousemodel=popup_setpos " Makes, e.g., spell suggestions easily accessible
+set nocompatible
 set noshowmode " powerline should take care of this
+set scrolloff=3 " Always scroll as to leave a few lines visible above/below cursor
+set shiftwidth=4
+set showbreak=\ \ ↪\  " Show this before wrapped lines
+set showcmd
+"set spell
+set spelllang=en_us
 set switchbuf=usetab,newtab
+set tabstop=4
+set wildignore=*.o,*.class,*.swp,*.aux,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.auxlock,*.synctex.gz
+set wildmenu
+" showbreak should use the same background as normal text
 
 " Save swap files in some separate directory
 set directory=~/.vim-swapfiles
