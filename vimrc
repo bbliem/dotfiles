@@ -2,6 +2,7 @@ colorscheme molokai
 let g:tex_comment_nospell=1 " No spell check in comments
 let g:is_posix = 1 " Otherwise $(...) in bash scripts will be highlighted in an irritating way
 filetype plugin indent on
+let powerline_pycmd = "py3"
 
 "{{{ Syntax highlighting
 syntax on
@@ -118,8 +119,8 @@ let g:Tex_MultipleCompileFormats='pdf'
 " -shell-escape is for externalizing graphics with TikZ (see http://tex.stackexchange.com/questions/1460/script-to-automate-externalizing-tikz-graphics or the TikZ manual)
 " let g:Tex_CompileRule_pdf='pdflatex -shell-escape -file-line-error -interaction=nonstopmode $* > /dev/null'
 "let g:Tex_CompileRule_pdf='pdflatex -shell-escape -synctex=1 -file-line-error -interaction=nonstopmode $* > /dev/null'
-let g:Tex_CompileRule_pdf='latexmk -pdf -pdflatex="pdflatex -synctex=1 -file-line-error -interaction=nonstopmode -shell-escape" -f $*'
-let g:Tex_ViewRule_pdf = '~/evince_synctex/evince'
+let g:Tex_CompileRule_pdf='latexmk -output-directory=out -pdf -latexoption="-synctex=1 -file-line-error -interaction=nonstopmode" $*'
+let g:Tex_ViewRuleComplete_pdf='~/evince_synctex/evince out/$*.pdf &'
 
 " Fold frames (with beamer class)
 let g:Tex_FoldedEnvironments = 'verbatim,comment,eq,gather,align,figure,table,thebibliography,keywords,abstract,titlepage,frame'
