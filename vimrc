@@ -28,6 +28,7 @@ set matchpairs+=<:> " Match angled braces
 set mouse=a
 set mousemodel=popup_setpos " Makes, e.g., spell suggestions easily accessible
 set nocompatible
+set nojoinspaces
 set noshowmode " powerline should take care of this
 set scrolloff=3 " Always scroll as to leave a few lines visible above/below cursor
 set shiftwidth=4

@@ -159,7 +159,7 @@ main = do
     nScreens <- countScreens
     xmonad $ ewmh xfceConfig {
     -- simple stuff
-    terminal           = "xfce4-terminal",
+    terminal           = "gnome-terminal",
     focusFollowsMouse  = True,
     borderWidth        = 2,
     modMask            = mod4Mask,
