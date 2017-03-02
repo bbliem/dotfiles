@@ -28,8 +28,8 @@ endif
 
 " Use \ls to forward-search
 function! Tex_ForwardSearchLaTeX()
-"	let cmd = '~/evince_synctex/evince_forward_search ' . fnamemodify(Tex_GetMainFileName(), ":p:r") . '.pdf ' . line(".") . ' ' . expand("%:p")
-	let cmd = '~/evince_synctex/evince_forward_search ' . fnamemodify(Tex_GetMainFileName(), ":p:h") . '/out/' . fnamemodify(Tex_GetMainFileName(), ":t:r") . '.pdf ' . line(".") . ' ' . expand("%:p")
+	let cmd = '~/evince_synctex/evince_forward_search ' . fnamemodify(Tex_GetMainFileName(), ":p:r") . '.pdf ' . line(".") . ' ' . expand("%:p")
+"	let cmd = '~/evince_synctex/evince_forward_search ' . fnamemodify(Tex_GetMainFileName(), ":p:h") . '/out/' . fnamemodify(Tex_GetMainFileName(), ":t:r") . '.pdf ' . line(".") . ' ' . expand("%:p")
 	let output = system(cmd)
 endfunction
 

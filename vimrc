@@ -20,6 +20,7 @@ set cinoptions=g0 " No indent for public / protected / private
 set cursorline
 set foldmethod=marker
 set gdefault
+set ignorecase " Add \C to search pattern for case-sensitivity
 set history=200 " Remember more commands
 set hlsearch
 set laststatus=2
@@ -103,6 +104,8 @@ nmap <S-Space> :execute 'NERDTreeToggle ' . getcwd()<CR>
 " So we try to also map CTRL + Space to the same command. However, due to
 " terminals misinterpreting this as CTRL + @, we use that one.
 nmap <C-@> :execute 'NERDTreeToggle ' .   getcwd()<CR>
+" Ignore certain file types
+let NERDTreeIgnore = ['\v\.(acn|glo|idx|ist|loa|lof|log|lot|out|latexmain)$'] " very magic
 
 " Make mouse clicks appear in the jump list so that, e.g., CTRL-O can be used
 " to jump back to the position before clicking.
@@ -119,9 +122,10 @@ let g:Tex_MultipleCompileFormats='pdf'
 "let g:Tex_CompileRule_pdf='pdflatex -file-line-error -interaction=nonstopmode $* > /dev/null'
 " -shell-escape is for externalizing graphics with TikZ (see http://tex.stackexchange.com/questions/1460/script-to-automate-externalizing-tikz-graphics or the TikZ manual)
 " let g:Tex_CompileRule_pdf='pdflatex -shell-escape -file-line-error -interaction=nonstopmode $* > /dev/null'
-"let g:Tex_CompileRule_pdf='pdflatex -shell-escape -synctex=1 -file-line-error -interaction=nonstopmode $* > /dev/null'
-let g:Tex_CompileRule_pdf='latexmk -output-directory=out -pdf -latexoption="-synctex=1 -file-line-error -interaction=nonstopmode" $*'
-let g:Tex_ViewRuleComplete_pdf='~/evince_synctex/evince out/$*.pdf &'
+let g:Tex_CompileRule_pdf='pdflatex -shell-escape -synctex=1 -file-line-error -interaction=nonstopmode $* > /dev/null'
+"let g:Tex_CompileRule_pdf='latexmk -output-directory=out -pdf -latexoption="-synctex=1 -file-line-error -interaction=nonstopmode -shell-escape" $*'
+"let g:Tex_ViewRuleComplete_pdf='~/evince_synctex/evince out/$*.pdf &'
+let g:Tex_ViewRuleComplete_pdf='~/evince_synctex/evince $*.pdf &'
 
 " Fold frames (with beamer class)
 let g:Tex_FoldedEnvironments = 'verbatim,comment,eq,gather,align,figure,table,thebibliography,keywords,abstract,titlepage,frame'
