@@ -1,3 +1,7 @@
+# TODO remove this when done playing with rails
+export PATH=$PATH:/home/bernhard/.gem/ruby/2.4.0/bin
+export GEM_HOME=/home/bernhard/.gem/ruby/2.4.0
+
 # In gnome-terminal we must use the following workaround in order to make a shell in a new tab start in the current working directory.
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=706065
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=712208
@@ -13,8 +17,8 @@ eval $(dircolors -b)
 
 #{{{ Aliases
 # When using SSH for the first time in this session, start SSH agent and add private key to its cache
-alias ssh='eval $(keychain --eval --agents ssh -Q --quiet --nogui id_ecdsa) && ssh'
-alias scp='eval $(keychain --eval --agents ssh -Q --quiet --nogui id_ecdsa) && scp'
+#alias ssh='eval $(keychain --eval --agents ssh -Q --quiet --nogui id_ecdsa) && ssh'
+#alias scp='eval $(keychain --eval --agents ssh -Q --quiet --nogui id_ecdsa) && scp'
 alias ccat='pygmentize -g'
 alias ls='ls --color=auto -N'
 alias grep='grep --color=auto'
