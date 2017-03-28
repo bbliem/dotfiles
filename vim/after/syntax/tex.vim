@@ -25,3 +25,4 @@ set spell
 " all the figure labels. (Also remember F9.)
 set iskeyword+=:
 set iskeyword+=-
+set iskeyword-=_

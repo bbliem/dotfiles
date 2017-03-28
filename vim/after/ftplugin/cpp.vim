@@ -4,3 +4,8 @@
 map <F8> :drop %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 " Split-open header if .cpp is open and vice versa with F9
 map <F9> :spl %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+
+setlocal noexpandtab
+setlocal shiftwidth=4
+setlocal softtabstop=0
+setlocal tabstop=4

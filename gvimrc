@@ -10,5 +10,5 @@ set guioptions-=e " To avoid an XMonad issue: http://unix.stackexchange.com/ques
 " https://github.com/Lokaltog/powerline/issues/701
 "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
 set guifont=Monospace\ 11
-set lines=48
-set columns=120
+"set lines=48
+"set columns=120

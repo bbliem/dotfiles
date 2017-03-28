@@ -10,9 +10,24 @@ syntax spell toplevel " http://stackoverflow.com/questions/5860154/vim-spell-che
 " Highlight spaces before EOL
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
+"match ExtraWhitespace /\s\+$/
+
+function! HighlightTrailingWhitespace()
+  " If option 'fo' contains 'w', do not highlight trailing whitespace
+  if &fo =~ 'w'
+    :match
+  else
+    :match ExtraWhitespace /\s\+$/
+  endif
+endfunction
 "}}}
-"{{{ "set" commands
+"{{{ "set" commands for tab behavior
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+"}}}
+"{{{ "set" commands for everything else
 set autochdir
 set background=dark
 "set cindent
@@ -32,13 +47,11 @@ set nocompatible
 set nojoinspaces
 set noshowmode " powerline should take care of this
 set scrolloff=3 " Always scroll as to leave a few lines visible above/below cursor
-set shiftwidth=4
 set showbreak=\ \ ↪\  " Show this before wrapped lines
 set showcmd
 "set spell
 set spelllang=en_us
 set switchbuf=usetab,newtab
-set tabstop=4
 set wildignore=*.o,*.class,*.swp,*.aux,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.auxlock,*.synctex.gz
 set wildmenu
 " showbreak should use the same background as normal text
@@ -61,7 +74,8 @@ nmap <silent> <Space> za
 vmap <silent> <Space> zf
 " Hide search highlighting (then clear and redraw screen) with CTRL-L
 "nnoremap <silent> <C-L> :match none<CR>:noh<CR>:cclose<CR><C-L>
-nnoremap <silent> <C-L> :match ExtraWhitespace /\s\+$/<CR>:noh<CR>:cclose<CR><C-L>
+"nnoremap <silent> <C-L> :match ExtraWhitespace /\s\+$/<CR>:noh<CR>:cclose<CR><C-L>
+nnoremap <silent> <C-L> :call HighlightTrailingWhitespace()<CR>:noh<CR>:cclose<CR><C-L>
 " Disable F1 help
 map <F1> <nop>
 imap <F1> <nop>
