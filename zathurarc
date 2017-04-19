@@ -1,0 +1,8 @@
+set show-scrollbars
+set scroll-step 150
+
+unmap q
+map n navigate next
+map p navigate previous
+map w adjust_window width
+map f adjust_window best-fit
