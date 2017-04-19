@@ -1,5 +1,4 @@
 colorscheme molokai
-let g:tex_comment_nospell=1 " No spell check in comments
 let g:is_posix = 1 " Otherwise $(...) in bash scripts will be highlighted in an irritating way
 filetype plugin indent on
 let powerline_pycmd = "py3"
@@ -59,12 +58,6 @@ set wildmenu
 " Save swap files in some separate directory
 set directory=~/.vim-swapfiles
 set backupdir=~/.vim-swapfiles
-"}}}
-"{{{ Concealing of math symbols in LaTeX mode
-let g:tex_conceal="adgms"
-set cole=2
-hi Conceal guibg=gray20 guifg=navajowhite
-hi NonText guibg=gray20
 "}}}
 "{{{ Key mappings
 " Don't use Ex mode, use Q for :q!
@@ -126,52 +119,12 @@ let NERDTreeIgnore = ['\v\.(acn|glo|idx|ist|loa|lof|log|lot|out|latexmain)$'] " 
 " http://vim.1045645.n5.nabble.com/Clicking-the-mouse-doesn-t-change-the-jump-list-td1201782.html
 noremap <LeftMouse> m'<LeftMouse>
 "}}}
-"{{{ Settings for vim-latexsuite
-"let g:tex_indent_items = 0
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor='latex' " Use LaTeX for all files with .tex extension
-let g:Tex_DefaultTargetFormat='pdf'
-"let g:Tex_MultipleCompileFormats='dvi,pdf'
-let g:Tex_MultipleCompileFormats='pdf'
-"let g:Tex_CompileRule_pdf='pdflatex -file-line-error -interaction=nonstopmode $* > /dev/null'
-" -shell-escape is for externalizing graphics with TikZ (see http://tex.stackexchange.com/questions/1460/script-to-automate-externalizing-tikz-graphics or the TikZ manual)
-" let g:Tex_CompileRule_pdf='pdflatex -shell-escape -file-line-error -interaction=nonstopmode $* > /dev/null'
-let g:Tex_CompileRule_pdf='pdflatex -shell-escape -synctex=1 -file-line-error -interaction=nonstopmode $* > /dev/null'
-"let g:Tex_CompileRule_pdf='latexmk -output-directory=out -pdf -latexoption="-synctex=1 -file-line-error -interaction=nonstopmode -shell-escape" $*'
-"let g:Tex_ViewRuleComplete_pdf='~/evince_synctex/evince out/$*.pdf &'
-let g:Tex_ViewRuleComplete_pdf='~/evince_synctex/evince $*.pdf &'
-
-" Fold frames (with beamer class)
-let g:Tex_FoldedEnvironments = 'verbatim,comment,eq,gather,align,figure,table,thebibliography,keywords,abstract,titlepage,frame'
-" Disable annoying IMAP macros (like SSS --> \section, {{ --> \left\{  \right\})
-let g:Imap_FreezeImap=1
-" Disable vim-latex placeholders
-let g:Imap_UsePlaceHolders = 0
-" Fold preamble, among other things
-let g:Tex_FoldedMisc='slide,preamble,<<<'
-
-let g:Tex_IgnoredWarnings =
-\"Underfull\n".
-\"Overfull\n".
-\"specifier changed to\n".
-\"You have requested\n".
-\"Missing number, treated as zero.\n".
-\"There were undefined references\n".
-\"Marginpar on page %.%# moved." " We want to ignore this additionally. The other 7 entries before are the default. (Whatever the fuck %.%# means...)
-let g:Tex_IgnoreLevel = 8 " default: 7
-
-" Don't jump to error locations (it's wrong most of the time and annoying)
-let g:Tex_GotoError=0
-" Don't show that domn log window each time
-let g:Tex_ShowErrorContext=0
-
-" Disable indentation for LaTeX files.
-autocmd FileType tex setlocal indentexpr=
-
-" Do not include cross referenced references if they are cross referenced more than once
-"let g:Tex_BibtexFlavor='bibtex -min-crossrefs=9999'
-"}}}
 "{{{ Settings for YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
 "let g:ycm_autoclose_preview_window_after_insertion=1
+"}}}
+"{{{ Settings for vimplug
+call plug#begin('~/.vim/plugged')
+Plug 'lervag/vimtex'
+call plug#end()
 "}}}
