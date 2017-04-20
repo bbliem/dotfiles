@@ -6,3 +6,5 @@ map n navigate next
 map p navigate previous
 map w adjust_window width
 map f adjust_window best-fit
+map <PageDown> scroll full-down
+map <PageUp> scroll full-up
