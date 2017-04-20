@@ -48,7 +48,7 @@ set noshowmode " powerline should take care of this
 set scrolloff=3 " Always scroll as to leave a few lines visible above/below cursor
 set showbreak=\ \ ↪\  " Show this before wrapped lines
 set showcmd
-"set spell
+set spell
 set spelllang=en_us
 set switchbuf=usetab,newtab
 set wildignore=*.o,*.class,*.swp,*.aux,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.auxlock,*.synctex.gz
