@@ -1,14 +1,16 @@
 " View with F4
-map <F4> <leader>lv
-imap <F4> <C-O><leader>lv
+map <buffer> <F4> <localleader>lv
+imap <buffer> <F4> <C-O><localleader>lv
 
-set iskeyword+=:
-set iskeyword+=-
-set iskeyword-=_
+setlocal foldmarker=<<<,>>>
+
+setlocal iskeyword+=:
+setlocal iskeyword+=-
+setlocal iskeyword-=_
 
 let g:tex_flavor='latex' " Use LaTeX for all files with .tex extension
 
-set conceallevel=2
+setlocal conceallevel=2
 let g:tex_conceal='abdmgs'
 
 let g:vimtex_fold_preamble=1
