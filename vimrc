@@ -118,6 +118,12 @@ let NERDTreeIgnore = ['\v\.(acn|glo|idx|ist|loa|lof|log|lot|out|latexmain)$'] " 
 " to jump back to the position before clicking.
 " http://vim.1045645.n5.nabble.com/Clicking-the-mouse-doesn-t-change-the-jump-list-td1201782.html
 noremap <LeftMouse> m'<LeftMouse>
+
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 "}}}
 "{{{ Settings for YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -126,5 +132,6 @@ let g:ycm_autoclose_preview_window_after_completion=1
 "{{{ Settings for vimplug
 call plug#begin('~/.vim/plugged')
 Plug 'lervag/vimtex'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 "}}}
