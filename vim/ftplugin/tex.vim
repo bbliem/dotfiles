@@ -9,11 +9,17 @@ setlocal iskeyword+=-
 setlocal iskeyword-=_
 
 let g:tex_flavor='latex' " Use LaTeX for all files with .tex extension
+let g:tex_comment_nospell=1 " No spell checking in comments
 
 setlocal conceallevel=2
 let g:tex_conceal='abdmgs'
 
+let g:vimtex_fold_enabled=1
+let g:vimtex_fold_manual=1
+let g:vimtex_fold_comments=1
 let g:vimtex_fold_preamble=1
+let g:vimtex_fold_envs=0
+let g:vimtex_imaps_enabled=0
 " Disable overfull/underfull \hbox and all package warnings
 let g:vimtex_quickfix_latexlog = {
       \ 'overfull' : 0,
