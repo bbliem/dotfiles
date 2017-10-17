@@ -51,7 +51,7 @@ set showcmd
 set spell
 set spelllang=en_us
 set switchbuf=usetab,newtab
-set wildignore=*.o,*.class,*.swp,*.aux,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.auxlock,*.synctex.gz
+set wildignore=*.o,*.class,*.swp,*.aux,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.auxlock,*.synctex.gz,*.fdb_latexmk,*.fls
 set wildmenu
 " showbreak should use the same background as normal text
 
