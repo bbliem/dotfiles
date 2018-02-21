@@ -3,8 +3,13 @@ let g:is_posix = 1 " Otherwise $(...) in bash scripts will be highlighted in an 
 filetype plugin indent on
 let powerline_pycmd = "py3"
 
+" Automatically open quickfix window after vimgrep
+autocmd QuickFixCmdPost vimgrep cwindow
+
 "{{{ Syntax highlighting
-syntax on
+if !exists("g:syntax_on")
+    syntax enable
+endif
 syntax spell toplevel " http://stackoverflow.com/questions/5860154/vim-spell-checking-comments-only-in-latex-files
 " Highlight spaces before EOL
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -75,6 +80,8 @@ imap <F1> <nop>
 " Save with F2
 map <silent> <F2> :update<CR>
 imap <silent> <F2> <C-O>:update<CR>
+" Grep in CWD with F3
+nmap <F3> :vimgrep //j *<left><left><left><left>
 
 " Shortcuts for tab switching
 map <A-1> 1gt
@@ -133,6 +140,8 @@ let g:ycm_autoclose_preview_window_after_completion=1
 call plug#begin('~/.vim/plugged')
 Plug 'lervag/vimtex'
 Plug 'junegunn/vim-easy-align'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 "}}}
 "{{{ Settings for nerdcommenter
@@ -140,4 +149,9 @@ call plug#end()
 let g:NERDCommentEmptyLines = 1
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
+"}}}
+"{{{ Settings for NERDTree
+let NERDTreeMapActivateNode='<Space>'
+" Single-click to open files/directories
+let NERDTreeMouseMode=3
 "}}}
