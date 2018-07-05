@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 here=$(dirname $(readlink -f $0))
 
 link()
