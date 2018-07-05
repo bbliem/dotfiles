@@ -33,6 +33,7 @@ KEYTIMEOUT=1 # for switching to vi command mode immediately
 bindkey -M vicmd '^R' redo
 bindkey -M vicmd 'u' undo
 bindkey -M viins '^r' history-incremental-search-backward
+bindkey -M viins '^f' history-incremental-search-forward
 
 # The vi versions of the following seem to only allow deleting up to where insert mode started. Annoying!
 zle -A .backward-kill-word vi-backward-kill-word
