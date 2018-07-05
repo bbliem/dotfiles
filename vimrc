@@ -6,6 +6,9 @@ let powerline_pycmd = "py3"
 " Automatically open quickfix window after vimgrep
 autocmd QuickFixCmdPost vimgrep cwindow
 
+" Automatically open tagbar when loading a buffer with a supported file type
+"autocmd BufEnter * nested :call tagbar#autoopen(0)
+
 "{{{ Syntax highlighting
 if !exists("g:syntax_on")
     syntax enable
@@ -40,7 +43,9 @@ set cursorline
 set foldmethod=marker
 set gdefault
 set ignorecase " Add \C to search pattern for case-sensitivity
-set history=200 " Remember more commands
+set iskeyword+=/ " Don't pass over directories when pressing <C-W> in vim's command line
+set hidden
+set history=500 " Remember more commands
 set hlsearch
 set laststatus=2
 set linebreak " Do not break in the middle of words
@@ -50,12 +55,14 @@ set mousemodel=popup_setpos " Makes, e.g., spell suggestions easily accessible
 set nocompatible
 set nojoinspaces
 set noshowmode " powerline should take care of this
-set scrolloff=3 " Always scroll as to leave a few lines visible above/below cursor
+set scrolloff=5 " Always scroll as to leave a few lines visible above/below cursor
 set showbreak=\ \ ↪\  " Show this before wrapped lines
 set showcmd
 set spell
 set spelllang=en_us
-set switchbuf=usetab,newtab
+"set switchbuf=usetab,newtab
+set switchbuf=useopen
+set tags=tags; " Semicolon makes sure ancestor directories are searched, http://vim.wikia.com/wiki/Single_tags_file_for_a_source_tree
 set wildignore=*.o,*.class,*.swp,*.aux,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.auxlock,*.synctex.gz,*.fdb_latexmk,*.fls
 set wildmenu
 " showbreak should use the same background as normal text
@@ -66,7 +73,7 @@ set backupdir=~/.vim-swapfiles
 "}}}
 "{{{ Key mappings
 " Don't use Ex mode, use Q for :q!
-map Q ZQ
+"map Q ZQ
 " Use space bar to toggle or create folds
 nmap <silent> <Space> za
 vmap <silent> <Space> zf
@@ -83,41 +90,39 @@ imap <silent> <F2> <C-O>:update<CR>
 " Grep in CWD with F3
 nmap <F3> :vimgrep //j *<left><left><left><left>
 
-" Shortcuts for tab switching
-map <A-1> 1gt
-map <A-2> 2gt
-map <A-3> 3gt
-map <A-4> 4gt
-map <A-5> 5gt
-map <A-6> 6gt
-map <A-7> 7gt
-map <A-8> 8gt
-map <A-9> 9gt
-map <A-0> 10gt
-nmap <C-S-tab> :tabprevious<cr>
-nmap <C-tab> :tabnext<cr>
-map <C-S-tab> :tabprevious<cr>
-map <C-tab> :tabnext<cr>
-imap <C-S-tab> <ESC>:tabprevious<cr>i
-imap <C-tab> <ESC>:tabnext<cr>i
+" Shortcuts for buffer switching
+nnoremap <A-1> :bfirst<CR>
+nnoremap <A-2> :bfirst<CR>:bn<CR>
+nnoremap <A-3> :bfirst<CR>:bn 2<CR>
+nnoremap <A-4> :bfirst<CR>:bn 3<CR>
+nnoremap <A-5> :bfirst<CR>:bn 4<CR>
+nnoremap <A-6> :bfirst<CR>:bn 5<CR>
+nnoremap <A-7> :bfirst<CR>:bn 6<CR>
+nnoremap <A-8> :bfirst<CR>:bn 7<CR>
+nnoremap <A-9> :bfirst<CR>:bn 8<CR>
+nnoremap <C-S-tab> :bp<CR>
+nnoremap <C-tab> :bn<CR>
+
+" Delete buffer without closing window
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Arrow keys affect *display* lines (for real lines, use j/k)
-map <Up> gk
-map <Down> gj
-map <Home> g<Home>
-map <End> g<End>
-imap <Up> <C-o>gk
-imap <Down> <C-o>gj
-imap <Home> <C-o>g<Home>
-imap <End> <C-o>g<End>
+"map <Up> gk
+"map <Down> gj
+"map <Home> g<Home>
+"map <End> g<End>
+"imap <Up> <C-o>gk
+"imap <Down> <C-o>gj
+"imap <Home> <C-o>g<Home>
+"imap <End> <C-o>g<End>
 
 " Toggle Nerdtree with Shift + Space
-nmap <S-Space> :execute 'NERDTreeToggle ' . getcwd()<CR>
+nmap <S-Space> :execute 'NERDTreeToggle ' . fnameescape(getcwd())<CR>
 " It seems to be a limitation of terminals that you can't map anything to
 " Shift + Something, however it works in gvim.
 " So we try to also map CTRL + Space to the same command. However, due to
 " terminals misinterpreting this as CTRL + @, we use that one.
-nmap <C-@> :execute 'NERDTreeToggle ' .   getcwd()<CR>
+nmap <C-@> :execute 'NERDTreeToggle ' .   fnameescape(getcwd())<CR>
 " Ignore certain file types
 let NERDTreeIgnore = ['\v\.(acn|glo|idx|ist|loa|lof|log|lot|out|latexmain)$'] " very magic
 
@@ -131,7 +136,31 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-"}}}
+
+" Toggle tagbar with F5
+nnoremap <silent> <F5> :TagbarToggle<CR>
+
+" Use [[ and ]] to move among functions even if { or } are not in the first
+" column. Unfortunately deletes the last search.
+"map [[ ?{<CR>w99[{
+"map ][ /}<CR>b99]}
+"map ]] j0[[%/{<CR>
+"map [] k$][%?}<CR>
+
+" Disable arrow movement, resize splits instead.
+" Taken from https://coderoncode.com/tools/2017/04/16/vim-the-perfect-ide.html
+"nnoremap <Up>    :resize +2<CR>
+"nnoremap <Down>  :resize -2<CR>
+"nnoremap <Left>  :vertical resize +2<CR>
+"nnoremap <Right> :vertical resize -2<CR>
+nnoremap <Up>    <C-w>k
+nnoremap <Down>  <C-w>j
+nnoremap <Left>  <C-w>h
+nnoremap <Right> <C-w>l
+
+" Press <leader>m to compile
+nnoremap <leader>m :silent make\|redraw!\|cc<CR>
+
 "{{{ Settings for YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
 "let g:ycm_autoclose_preview_window_after_insertion=1
@@ -142,6 +171,8 @@ Plug 'lervag/vimtex'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 "}}}
 "{{{ Settings for nerdcommenter
