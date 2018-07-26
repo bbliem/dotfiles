@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 here=$(dirname $(readlink -f $0))
 
 link()
@@ -10,7 +10,7 @@ link()
   fi
 }
 
-for f in $here/{bashrc,gitconfig,gvimrc,inputrc,vim,vimrc,zshrc}; do
+for f in $here/{bashrc,bash_profile,gitconfig,gvimrc,inputrc,vim,vimrc,zshrc}; do
   link "$f" "$HOME/.$(basename $f)"
 done
 
@@ -25,3 +25,5 @@ link "$here/xmonad.hs" "$HOME/.xmonad/xmonad.hs"
 
 mkdir -p $HOME/.config/zathura
 link "$here/zathurarc" "$HOME/.config/zathura/zathurarc"
+
+mkdir -p $HOME/.vim-swapfiles
