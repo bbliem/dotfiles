@@ -90,18 +90,18 @@ imap <silent> <F2> <C-O>:update<CR>
 " Grep in CWD with F3
 nmap <F3> :vimgrep //j *<left><left><left><left>
 
-" Shortcuts for buffer switching
-nnoremap <A-1> :bfirst<CR>
-nnoremap <A-2> :bfirst<CR>:bn<CR>
-nnoremap <A-3> :bfirst<CR>:bn 2<CR>
-nnoremap <A-4> :bfirst<CR>:bn 3<CR>
-nnoremap <A-5> :bfirst<CR>:bn 4<CR>
-nnoremap <A-6> :bfirst<CR>:bn 5<CR>
-nnoremap <A-7> :bfirst<CR>:bn 6<CR>
-nnoremap <A-8> :bfirst<CR>:bn 7<CR>
-nnoremap <A-9> :bfirst<CR>:bn 8<CR>
-nnoremap <C-S-tab> :bp<CR>
-nnoremap <C-tab> :bn<CR>
+" Shortcuts for tab switching
+nnoremap <A-1> 1gt
+nnoremap <A-2> 2gt
+nnoremap <A-3> 3gt
+nnoremap <A-4> 4gt
+nnoremap <A-5> 5gt
+nnoremap <A-6> 6gt
+nnoremap <A-7> 7gt
+nnoremap <A-8> 8gt
+nnoremap <A-9> 9gt
+nnoremap <C-S-tab> gT
+nnoremap <C-tab> gt
 
 " Delete buffer without closing window
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
@@ -173,6 +173,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/matchit'
+Plug 'vim-scripts/indentpython.vim'
 call plug#end()
 "}}}
 "{{{ Settings for nerdcommenter
