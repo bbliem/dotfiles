@@ -39,6 +39,7 @@ set autochdir
 set background=dark
 "set cindent
 set cinoptions=g0 " No indent for public / protected / private
+set completeopt=menuone,longest,preview
 set cursorline
 set foldmethod=marker
 set gdefault
@@ -124,7 +125,7 @@ nmap <S-Space> :execute 'NERDTreeToggle ' . fnameescape(getcwd())<CR>
 " terminals misinterpreting this as CTRL + @, we use that one.
 nmap <C-@> :execute 'NERDTreeToggle ' .   fnameescape(getcwd())<CR>
 " Ignore certain file types
-let NERDTreeIgnore = ['\v\.(acn|glo|idx|ist|loa|lof|log|lot|out|latexmain)$'] " very magic
+let NERDTreeIgnore = ['\v\.(acn|glo|idx|ist|loa|lof|log|lot|out|latexmain)$|^__pycache__$'] " very magic
 
 " Make mouse clicks appear in the jump list so that, e.g., CTRL-O can be used
 " to jump back to the position before clicking.
@@ -164,6 +165,7 @@ nnoremap <leader>m :silent make\|redraw!\|cc<CR>
 "{{{ Settings for YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
 "let g:ycm_autoclose_preview_window_after_insertion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "}}}
 "{{{ Settings for vimplug
 call plug#begin('~/.vim/plugged')

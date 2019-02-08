@@ -22,7 +22,7 @@ eval $(dircolors -b)
 alias ccat='pygmentize -g'
 alias ls='ls --color=auto -N'
 alias grep='grep --color=auto'
-alias packer='packer --noedit'
+alias packer='packer-aur --noedit'
 alias pacman='pacman --color=auto'
 # http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias sudo='sudo '
@@ -74,7 +74,7 @@ bindkey -M vicmd '^[[1;5C' vi-forward-word
 
 # Make CTRL + W delete up to the last slash
 backward-delete-to-slash () {
-	local WORDCHARS=${WORDCHARS//\//}
+	local WORDCHARS=${WORDCHARS/\/}
 	zle .backward-delete-word
 }
 zle -N backward-delete-to-slash
