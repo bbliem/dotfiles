@@ -168,7 +168,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "}}}
 "{{{ Settings for vimplug
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim-plugins')
 Plug 'lervag/vimtex'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdcommenter'
