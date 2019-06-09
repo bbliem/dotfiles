@@ -178,6 +178,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tmhedberg/matchit'
 Plug 'vim-scripts/indentpython.vim'
+Plug 'vale1410/vim-minizinc'
 call plug#end()
 "}}}
 "{{{ Settings for nerdcommenter
