@@ -1,6 +1,6 @@
 [user]
 	name = Bernhard Bliem
-	email = bernhard.bliem@gmail.com
+	email = bernhard@bliem.xyz
 [alias]
 	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1 = \\2/' | sort
 	ci = commit
