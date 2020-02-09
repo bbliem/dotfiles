@@ -169,6 +169,7 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "}}}
 "{{{ Settings for vimplug
 call plug#begin('~/.vim-plugins')
+Plug 'davidhalter/jedi-vim'
 Plug 'lervag/vimtex'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdcommenter'
