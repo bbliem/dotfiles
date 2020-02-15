@@ -24,5 +24,13 @@ for f in (cwd / 'home-config').iterdir():
     target = config / f.name
     link(f, target)
 
+# Make a symlink in ~/.gnupg to each file/directory in cwd/home-gnupg
+# XXX duplicate code
+config = Path.home() / '.gnupg'
+config.mkdir(mode=0o700, exist_ok=True)
+for f in (cwd / 'home-gnupg').iterdir():
+    target = config / f.name
+    link(f, target)
+
 # Some extra stuff
 (Path.home() / '.vim-swapfiles').mkdir(mode=0o700, exist_ok=True)
