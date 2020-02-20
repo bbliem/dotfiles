@@ -1,4 +1,9 @@
-colorscheme molokai
+"colorscheme molokai
+
+let g:hybrid_custom_term_colors = 1
+"let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
+colorscheme hybrid
+
 let g:is_posix = 1 " Otherwise $(...) in bash scripts will be highlighted in an irritating way
 filetype plugin indent on
 let powerline_pycmd = "py3"
