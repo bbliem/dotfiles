@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 from pathlib import Path
 
 def link(source, target):
@@ -34,3 +35,6 @@ for f in (cwd / 'home-gnupg').iterdir():
 
 # Some extra stuff
 (Path.home() / '.vim-swapfiles').mkdir(mode=0o700, exist_ok=True)
+
+# Import dconf settings
+os.system(f'dconf load / < {cwd}/dconf-settings.ini')
