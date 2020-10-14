@@ -1,7 +1,3 @@
-# TODO remove this when done playing with rails
-export PATH=$PATH:/home/bernhard/.gem/ruby/2.4.0/bin
-export GEM_HOME=/home/bernhard/.gem/ruby/2.4.0
-
 export SSH_AUTH_SOCK=`gpgconf --list-dirs agent-ssh-socket`
 export GPG_TTY=$(tty)
 
@@ -15,7 +11,7 @@ export GPG_TTY=$(tty)
 export EDITOR=vim
 HISTSIZE=1000
 SAVEHIST=1000
-HISTFILE=~/.zsh_history
+HISTFILE=~/.gocryptfs-plain/.zsh_history
 eval $(dircolors -b)
 
 #{{{ Aliases
