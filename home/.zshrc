@@ -1,6 +1,10 @@
 export SSH_AUTH_SOCK=`gpgconf --list-dirs agent-ssh-socket`
 export GPG_TTY=$(tty)
 
+# npm: global package installations should not really be global...
+export npm_config_prefix=~/.node_modules
+PATH="$HOME/.node_modules/bin:$PATH"
+
 # In gnome-terminal we must use the following workaround in order to make a shell in a new tab start in the current working directory.
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=706065
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=712208
