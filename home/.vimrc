@@ -64,8 +64,8 @@ set noshowmode " powerline should take care of this
 set scrolloff=5 " Always scroll as to leave a few lines visible above/below cursor
 set showbreak=\ \ ↪\  " Show this before wrapped lines
 set showcmd
-set spell
-set spelllang=en_us
+"set spell
+"set spelllang=en_us
 "set switchbuf=usetab,newtab
 set switchbuf=useopen
 set tags=tags; " Semicolon makes sure ancestor directories are searched, http://vim.wikia.com/wiki/Single_tags_file_for_a_source_tree
@@ -175,16 +175,18 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "{{{ Settings for vimplug
 call plug#begin('~/.vim-plugins')
 Plug 'davidhalter/jedi-vim'
+Plug 'dense-analysis/ale'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'lervag/vimtex'
 Plug 'junegunn/vim-easy-align'
+"Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
 Plug 'majutsushi/tagbar'
-Plug 'dhruvasagar/vim-table-mode'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tmhedberg/matchit'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'vale1410/vim-minizinc'
+"Plug 'vim-scripts/indentpython.vim'
 call plug#end()
 "}}}
 "{{{ Settings for nerdcommenter
@@ -198,3 +200,9 @@ let NERDTreeMapActivateNode='<Space>'
 " Single-click to open files/directories
 let NERDTreeMouseMode=3
 "}}}
+"{{{ Settings for vimtex
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:tex_flavor='latex'
+"}}}
+
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
