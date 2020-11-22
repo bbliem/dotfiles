@@ -185,6 +185,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/SimpylFold'
+Plug 'posva/vim-vue'
 Plug 'tmhedberg/matchit'
 "Plug 'vim-scripts/indentpython.vim'
 call plug#end()
