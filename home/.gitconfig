@@ -14,11 +14,13 @@
 	ui = auto
 [format]
 	pretty = %C(yellow)%h%Creset %s%C(magenta bold)%d %C(blue)<%an> %C(green)(%ar)%Creset
+[pull]
+	rebase = true
 [push]
 	default = simple
 [branch]
 	autosetuprebase = always
 [credential]
-	helper = cache --timeout=7200
+	helper = store
 [rebase]
   autostash = true

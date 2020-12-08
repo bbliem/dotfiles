@@ -1,5 +1,5 @@
-export SSH_AUTH_SOCK=`gpgconf --list-dirs agent-ssh-socket`
-export GPG_TTY=$(tty)
+#export SSH_AUTH_SOCK=`gpgconf --list-dirs agent-ssh-socket`
+#export GPG_TTY=$(tty)
 
 # npm: global package installations should not really be global...
 export npm_config_prefix=~/.node_modules

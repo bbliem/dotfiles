@@ -69,6 +69,7 @@ set showcmd
 "set switchbuf=usetab,newtab
 set switchbuf=useopen
 set tags=tags; " Semicolon makes sure ancestor directories are searched, http://vim.wikia.com/wiki/Single_tags_file_for_a_source_tree
+set viminfo+=n~/.gocryptfs-plain/viminfo
 set wildignore=*.o,*.class,*.swp,*.aux,*.pdf,*.dvi,*.ps,*.nav,*.snm,*.toc,*.vrb,*.tdo,*.bbl,*.blg,*-blx.bib,*.bcf,*.run.xml,*.auxlock,*.synctex.gz,*.fdb_latexmk,*.fls
 set wildmenu
 " showbreak should use the same background as normal text
